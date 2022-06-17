@@ -2,7 +2,7 @@
 
 meet-app is an application for users to find events based on their location. It is a serverless progressive web application (PWA) using React and built using the test-driven development (TDD) technique. The app utilises the Google Calendar API.
 
-<h5>FEATURE 1: FILTER EVENTS BY CITY</h5>
+<h3>FEATURE 1: FILTER EVENTS BY CITY</h3>
 
 As a user, I should be able to filter events by city so that I can see the list of events that take place in that city.
 
@@ -24,7 +24,7 @@ As a user, I should be able to filter events by city so that I can see the list 
 - When the user selects a city from the list (e.g., "Hamburg, Germany")
 - Then their city should be changed to that city (i.e., "Hamburg, Germany")
 
-<h5>Feature 2: Show and hide event details</h5>
+<h3>Feature 2: Show and hide event details</h3>
 
 As a user, I should be able to show and hide event details so that I can see more or less info about an event based on my preferences.
 
@@ -46,7 +46,7 @@ As a user, I should be able to show and hide event details so that I can see mor
 - When the user clicks on the expand view
 - Then the view should collapse
 
-<h5>Feature 3: Specify the number of events</h5>
+<h3>Feature 3: Specify the number of events</h3>
 
 As a user, I should be able to specify the number of events I want to view so that I can see more or fewer events in the events list at once.
 
@@ -62,7 +62,7 @@ As a user, I should be able to specify the number of events I want to view so th
 - When the user visits the page
 - Then the specified count of events will display
 
-<h5>Feature 4: Use the app when offline</h5>
+<h3>Feature 4: Use the app when offline</h3>
 
 As a user, I should be able to use the app when offline so that I can see the events I viewed the last time I was online.
 
@@ -78,7 +78,7 @@ As a user, I should be able to use the app when offline so that I can see the ev
 - When the user wants to alter info
 - Then an error message will be displayed
 
-<h5>Feature 5: Data visualisation</h5>
+<h3>Feature 5: Data visualisation</h3>
 
 As a user, I should be able to see a chart showing the upcoming events in each city so that I know what events are organised.
 
