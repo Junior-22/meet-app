@@ -1,4 +1,4 @@
-<h4>meet-app</h4>
+<h1>meet-app</h1>
 
 meet-app is an application for users to find events based on their location. It is a serverless progressive web application (PWA) using React and built using the test-driven development (TDD) technique. The app utilises the Google Calendar API.
 
