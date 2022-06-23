@@ -9,10 +9,15 @@ import "./nprogress.css";
 class App extends Component {
   state = {
     events: [],
-    locations: []
+    locations: [],
+    NumberOfEvents: 32
   }
 
-  updateEvents = (location) => {
+  updateEvents = (location, eventCount) => {
+    if (!location) location = "all";
+    !eventCount
+      ? (eventCount = this.state.NumberOfEvents)
+      : this.setState({ NumberOfEvents: eventCount });
     getEvents().then((events) => {
       const locationEvents = (location === "all") ?
         events :
@@ -41,7 +46,7 @@ class App extends Component {
       <div className='App'>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <EventList events={this.state.events} />
-        <NumberOfEvents />
+        <NumberOfEvents NumberOfEvents={this.state.NumberOfEvents} updateEvents={this.updateEvents} />
       </div>
     )
   }
