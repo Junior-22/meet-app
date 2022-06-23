@@ -1,3 +1,9 @@
+import { mockData } from "./mock-data";
+
+export const getEvents = async () => {
+  return mockData;
+};
+
 /**
  *
  * @param {*} events:
