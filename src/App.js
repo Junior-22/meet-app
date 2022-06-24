@@ -24,6 +24,7 @@ class App extends Component {
         events.filter((event) => event.location === location);
       this.setState({
         events: locationEvents.slice(0, eventCount),
+        NumberOfEvents: eventCount
       });
     });
   }
