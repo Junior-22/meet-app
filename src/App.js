@@ -4,13 +4,16 @@ import "./nprogress.css";
 import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
-import { extractLocations, getEvents } from "./api";
+import { extractLocations, getEvents, checkToken, getAccessToken } from "./api";
+import { OfflineAlert } from "./Alert";
+import WelcomeScreen from "./WelcomeScreen";
 
 class App extends Component {
   state = {
     events: [],
     locations: [],
-    NumberOfEvents: 32
+    NumberOfEvents: 32,
+    showWelcomeScreen: undefined
   }
 
   updateEvents = (location, eventCount) => {
@@ -29,13 +32,52 @@ class App extends Component {
     });
   }
 
-  componentDidMount() {
+  // componentDidMount() {
+  //   this.mounted = true;
+  //   getEvents().then((events) => {
+  //     if (this.mounted) {
+  //       this.setState({ events, locations: extractLocations(events) });
+  //     }
+  //   });
+  // }
+
+  async componentDidMount() {
     this.mounted = true;
-    getEvents().then((events) => {
-      if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
-      }
+    const accessToken = localStorage.getItem("access_token");
+    let isTokenValid;
+    if (accessToken && !navigator.onLine) {
+      isTokenValid = true;
+    } else {
+      isTokenValid = await checkToken(accessToken).error ? false : true;
+    }
+
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get("code");
+    this.setState({
+      showWelcomeScreen: !(code || isTokenValid)
     });
+
+    if ((code || isTokenValid) && this.mounted) {
+      getEvents().then((events) => {
+        if (this.mounted) {
+          this.setState({
+            events: events.slice(0, this.state.NumberOfEvents),
+            locations: extractLocations(events),
+          });
+        }
+      });
+    }
+
+    if (!navigator.online) {
+      this.setState({
+        offLineText: "You are operating offline"
+      });
+    } else {
+      this.setState({
+        offLineText: ""
+      });
+    }
+
   }
 
   componentWillUnmount() {
@@ -43,9 +85,13 @@ class App extends Component {
   }
 
   render() {
+
+    if (this.state.showWelcomeScreen === undefined) return <div className="App" />
+
     return (
-      <div className='App'>
+      <div className="App">
         <h1>Welcome to my meet-app</h1>
+        <OfflineAlert text={this.state.offLineText} />
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
@@ -55,6 +101,12 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
         <EventList events={this.state.events} />
+        <WelcomeScreen
+          showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={() => {
+            getAccessToken();
+          }}
+        />
       </div>
     )
   }
