@@ -29,6 +29,7 @@
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 1rem;
   justify-content: center;
+  margin-top: 50px;
 }
 
 ul {
@@ -96,6 +97,7 @@ input[type="number"] {
   padding: 8px 6px 8px 10px;
   background-color: var(--secondary-color);
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .suggestions>li:last-child {
@@ -168,9 +170,11 @@ input[type="number"] {
 }
 
 .NumberOfEvents {
-  width: 200px;
+  /* width: 200px; */
   margin: 20px auto;
   text-align: center;
+  position: relative;
+  right: 500px;
 }
 
 .button-wrapper {
