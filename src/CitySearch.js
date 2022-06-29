@@ -29,6 +29,7 @@ class CitySearch extends Component {
     if (suggestions.length === 0) {
       this.setState({
         query: value,
+        showSuggestions: false,
         infoText: "We cannot find the city you are looking for. Please try another city",
       });
     } else {
@@ -53,6 +54,7 @@ class CitySearch extends Component {
   render() {
     return (
       <div className="CitySearch">
+        <label htmlFor="city-search">Search for city</label>
         <input
           type="text"
           className="city"
