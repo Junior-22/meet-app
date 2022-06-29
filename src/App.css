@@ -26,7 +26,7 @@
 
 .EventList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   gap: 1rem;
   justify-content: center;
   margin-top: 50px;
@@ -170,11 +170,11 @@ input[type="number"] {
 }
 
 .NumberOfEvents {
-  /* width: 200px; */
+  width: 200px;
   margin: 20px auto;
   text-align: center;
   position: relative;
-  right: 500px;
+  /* right: 300px; */
 }
 
 .button-wrapper {
