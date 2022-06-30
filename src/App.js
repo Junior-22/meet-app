@@ -48,7 +48,8 @@ class App extends Component {
     if (accessToken && !navigator.onLine) {
       isTokenValid = true;
     } else {
-      isTokenValid = await checkToken(accessToken).error ? false : true;
+      isTokenValid = await checkToken(accessToken)
+      isTokenValid = isTokenValid.error ? false : true;
     }
 
     const searchParams = new URLSearchParams(window.location.search);
