@@ -101,12 +101,12 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
         <EventList events={this.state.events} />
-        <WelcomeScreen
+        {/* <WelcomeScreen
           showWelcomeScreen={this.state.showWelcomeScreen}
           getAccessToken={() => {
             getAccessToken();
           }}
-        />
+        /> */}
       </div>
     )
   }
