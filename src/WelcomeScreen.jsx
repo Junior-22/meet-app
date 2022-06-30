@@ -1,4 +1,5 @@
 import React from "react";
+import "./WelcomeScreen.css";
 
 function WelcomeScreen(props) {
   return props.showWelcomeScreen ? (
@@ -29,7 +30,7 @@ function WelcomeScreen(props) {
       </div>
 
       <a
-        href="./privacy.html"
+        href="https://Junior-22.github.io/meet-app/privacy.html"
         rel="nofollow noopener"
       >
         Privacy policy
