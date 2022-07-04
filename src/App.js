@@ -48,8 +48,7 @@ class App extends Component {
     if (accessToken && !navigator.onLine) {
       isTokenValid = true;
     } else {
-      isTokenValid = await checkToken(accessToken)
-      isTokenValid = isTokenValid.error ? false : true;
+      isTokenValid = await checkToken(accessToken).error ? false : true;
     }
 
     const searchParams = new URLSearchParams(window.location.search);
@@ -69,13 +68,15 @@ class App extends Component {
       });
     }
 
-    if (!navigator.online) {
+    console.log("Navigator status: ", navigator.onLine)
+
+    if (!navigator.onLine) {
       this.setState({
         offLineText: "You are operating offline"
       });
     } else {
       this.setState({
-        offLineText: ""
+        offLineText: "Is online"
       });
     }
 
