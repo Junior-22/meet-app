@@ -68,8 +68,6 @@ class App extends Component {
       });
     }
 
-    console.log("Navigator status: ", navigator.onLine)
-
     if (!navigator.onLine) {
       this.setState({
         offLineText: "You are operating offline"
