@@ -3,13 +3,19 @@ import axios from "axios";
 import NProgress from "nprogress";
 
 export const checkToken = async (accessToken) => {
-  const result = await fetch(
-    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
-  )
-    .then((res) => res.json())
-    .catch((error) => error.json);
+  try {
+    const result = await fetch(
+      `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
+    );
 
-  return result;
+    return await result.json();
+  } catch (error) {
+    error.json();
+  }
+  // .then((res) => res.json())
+  // .catch((error) => error.json());
+
+  // return result;
 };
 
 const getToken = async (code) => {
@@ -73,9 +79,10 @@ export const getEvents = async () => {
     return mockData;
   }
 
-  if (!navigator.online) {
+  if (!navigator.onLine) {
     const data = localStorage.getItem("lastEvents");
     NProgress.done();
+    console.log("events")
     return data ? JSON.parse(data).events : [];
   }
 
