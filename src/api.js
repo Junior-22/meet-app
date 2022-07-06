@@ -9,9 +9,7 @@ export const checkToken = async (accessToken) => {
     );
 
     return await result.json();
-  } catch (error) {
-    error.json();
-  }
+  } catch (error) { }
   // .then((res) => res.json())
   // .catch((error) => error.json());
 
