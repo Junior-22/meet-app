@@ -6,22 +6,34 @@ const EventGenre = ({ events }) => {
 
   const Colours = ['#204051', '#84A9AC', '#FABB51', '#3B6978', '#C74B50'];
 
-  useEffect(() => {
-    const getData = () => {
-      const genres = ["React", "Javascript", "Node", "jQuery", "AngularJS"];
-      const data = genres.map((genre) => {
-        const value = events.filter(({ summary }) =>
-          summary.includes(genre)
-        ).length;
-        return { name: genre, value };
-      });
-      console.log(data)
-      return data;
-    };
+  // useEffect(() => {
+  //   const getData = () => {
+  //     const genres = ["React", "Javascript", "Node", "jQuery", "AngularJS"];
+  //     const data = genres.map((genre) => {
+  //       const value = events.filter(({ summary }) =>
+  //         summary.includes(genre)
+  //       ).length;
+  //       return { name: genre, value };
+  //     });
+  //     console.log(data)
+  //     return data;
+  //   };
 
-    setData(() => getData());
-  }, [events]);
+  //   setData(() => getData());
+  // }, [events]);
 
+  useEffect(() => { setData(() => getData()); }, [events]);
+
+  const getData = () => {
+    const genres = ["React", "Javascript", "Node", "jQuery", "AngularJS"];
+    const data = genres.map((genre) => {
+      const value = events.filter((event) =>
+        event.summary.split(" ").includes(genre)
+      ).length;
+      return { name: genre, value };
+    });
+    return data;
+  }
 
   return (
     <ResponsiveContainer height={400}>
@@ -31,6 +43,7 @@ const EventGenre = ({ events }) => {
           cx={200}
           cy={200}
           labelLine={false}
+          innerRadius={50}
           outerRadius={80}
           fill="#8884d8"
           dataKey="value"
