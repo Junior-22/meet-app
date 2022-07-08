@@ -2,7 +2,32 @@
 
 meet-app is an application for users to find events based on their location. It is a serverless progressive web application (PWA) using React and built using the test-driven development (TDD) technique. The app utilises the Google Calendar API.
 
-<h3>FEATURE 1: FILTER EVENTS BY CITY</h3>
+<h3>Built with</h3>
+
+- Javascript
+- HTML
+- CSS
+- React
+- Jest, Cucumber and Puppeteer for Testing
+- Google Calendar API and OAuth2
+- AWS Lambda
+
+The application was created using the Create React App (CRA) boilerplate, enabling the pwa template to transfer the app into a PWA in the development process:
+
+npx create-react-app meet --template cra-template-pwa --use-npm
+
+<h3>Key features</h3>
+
+- Filter events by city.
+- Show/hide event details.
+- Specify number of events.
+- Use the app when offline.
+- Add an app shortcut to the home screen.
+- View a chart showing the number of upcoming events by city.
+
+<h3>User stories and test scenarios</h3>
+
+<h4>FEATURE 1: FILTER EVENTS BY CITY</h4>
 
 As a user, I should be able to filter events by city so that I can see the list of events that take place in that city.
 
@@ -24,7 +49,7 @@ As a user, I should be able to filter events by city so that I can see the list 
 - When the user selects a city from the list (e.g., "Hamburg, Germany")
 - Then their city should be changed to that city (i.e., "Hamburg, Germany")
 
-<h3>Feature 2: Show and hide event details</h3>
+<h4>Feature 2: Show and hide event details</h4>
 
 As a user, I should be able to show and hide event details so that I can see more or less info about an event based on my preferences.
 
@@ -46,7 +71,7 @@ As a user, I should be able to show and hide event details so that I can see mor
 - When the user clicks on the expand view
 - Then the view should collapse
 
-<h3>Feature 3: Specify the number of events</h3>
+<h4>Feature 3: Specify the number of events</h4>
 
 As a user, I should be able to specify the number of events I want to view so that I can see more or fewer events in the events list at once.
 
@@ -62,7 +87,7 @@ As a user, I should be able to specify the number of events I want to view so th
 - When the user visits the page
 - Then the specified count of events will display
 
-<h3>Feature 4: Use the app when offline</h3>
+<h4>Feature 4: Use the app when offline</h4>
 
 As a user, I should be able to use the app when offline so that I can see the events I viewed the last time I was online.
 
@@ -78,7 +103,7 @@ As a user, I should be able to use the app when offline so that I can see the ev
 - When the user wants to alter info
 - Then an error message will be displayed
 
-<h3>Feature 5: Data visualisation</h3>
+<h4>Feature 5: Data visualisation</h4>
 
 As a user, I should be able to see a chart showing the upcoming events in each city so that I know what events are organised.
 
@@ -87,3 +112,19 @@ As a user, I should be able to see a chart showing the upcoming events in each c
 - Given the user is on the main page
 - When the user wants to see upcoming events
 - Then the user will see a chart containing upcoming events
+
+<h3>Running the project</h3>
+
+- Clone or download repository
+
+  git clone https://github.com/Junior-22/meet-app
+
+- To run app on localhost:
+
+  npm run start
+
+- To push changes to github pages
+  
+  npm run deploy
+
+<a href="https://junior-22.github.io/meet-app/">Visit the site</a>
