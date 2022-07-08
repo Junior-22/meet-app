@@ -4,36 +4,22 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 const EventGenre = ({ events }) => {
   const [data, setData] = useState([]);
 
-  const Colours = ['#204051', '#84A9AC', '#FABB51', '#3B6978', '#C74B50'];
+  const Colours = ['#204051', '#84A9AC', '#83a6ed', '#3B6978', '#C74B50'];
 
-  // useEffect(() => {
-  //   const getData = () => {
-  //     const genres = ["React", "Javascript", "Node", "jQuery", "AngularJS"];
-  //     const data = genres.map((genre) => {
-  //       const value = events.filter(({ summary }) =>
-  //         summary.includes(genre)
-  //       ).length;
-  //       return { name: genre, value };
-  //     });
-  //     console.log(data)
-  //     return data;
-  //   };
+  useEffect(() => {
+    const getData = () => {
+      const genres = ["React", "Javascript", "Node", "jQuery", "AngularJS"];
+      const data = genres.map((genre) => {
+        const value = events.filter(({ summary }) =>
+          summary.includes(genre)
+        ).length;
+        return { name: genre, value };
+      });
+      return data;
+    };
 
-  //   setData(() => getData());
-  // }, [events]);
-
-  useEffect(() => { setData(() => getData()); }, [events]);
-
-  const getData = () => {
-    const genres = ["React", "Javascript", "Node", "jQuery", "AngularJS"];
-    const data = genres.map((genre) => {
-      const value = events.filter((event) =>
-        event.summary.split(" ").includes(genre)
-      ).length;
-      return { name: genre, value };
-    });
-    return data;
-  }
+    setData(() => getData());
+  }, [events]);
 
   return (
     <ResponsiveContainer height={400}>
