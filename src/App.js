@@ -130,7 +130,7 @@ class App extends Component {
 
   render() {
 
-    const { locations, NumberOfEvents, events } = this.state;
+    // const { locations, NumberOfEvents, events } = this.state;
 
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />
 
@@ -147,7 +147,7 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
         <div className="data-vis-wrapper">
-          <EventGenre events={events} />
+          <EventGenre events={this.state.events} />
           <ResponsiveContainer height={400}>
             <ScatterChart
               margin={{
@@ -159,7 +159,7 @@ class App extends Component {
               <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
               <Tooltip cursor={{ strokeDasharray: '3 3' }} />
               <Scatter data={this.getData()} fill="#8884d8" />
-              <Scatter data={this.getData()} fill="#82ca9d" />
+              {/* <Scatter data={this.getData()} fill="#82ca9d" /> */}
             </ScatterChart>
           </ResponsiveContainer>
         </div>
