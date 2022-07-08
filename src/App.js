@@ -107,7 +107,7 @@ class App extends Component {
       });
     } else {
       this.setState({
-        offLineText: "Is online"
+        offLineText: ""
       });
     }
   }
