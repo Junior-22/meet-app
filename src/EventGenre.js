@@ -29,7 +29,7 @@ const EventGenre = ({ events }) => {
           cx={200}
           cy={200}
           labelLine={false}
-          innerRadius={50}
+          innerRadius={30}
           outerRadius={80}
           fill="#8884d8"
           dataKey="value"
