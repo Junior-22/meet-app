@@ -189,7 +189,7 @@ input[type="number"] {
   position: initial;
 }
 
-/* .data-vis-wrapper {
+.data-vis-wrapper {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -202,7 +202,7 @@ input[type="number"] {
 
 .recharts-surface {
   overflow: visible;
-} */
+}
 
 /* .login-button {
   color: #494949;
@@ -263,7 +263,7 @@ input[type="number"] {
 
 
 
-/* @media only screen and (min-width: 992px) {
+@media only screen and (min-width: 992px) {
   .data-vis-wrapper {
     flex-direction: row;
   }
@@ -274,4 +274,4 @@ input[type="number"] {
     min-width: auto;
     margin: 0 auto;
   }
-} */
+}
