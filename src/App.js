@@ -132,7 +132,7 @@ class App extends Component {
 
     // const { locations, NumberOfEvents, events } = this.state;
 
-    // if (this.state.showWelcomeScreen === undefined) return <div className="App" />
+    if (this.state.showWelcomeScreen === undefined) return <div className="App" />
 
     return (
       <div className="App">
@@ -163,16 +163,12 @@ class App extends Component {
           </ResponsiveContainer>
         </div>
         <EventList events={this.state.events} />
-        <a
-          href="https://Junior-22.github.io/meet-app/privacy.html"
-          rel="nofollow noopener"
-        ></a>
-        {/* <WelcomeScreen
+        <WelcomeScreen
           showWelcomeScreen={this.state.showWelcomeScreen}
           getAccessToken={() => {
             getAccessToken();
           }}
-        /> */}
+        />
       </div>
     )
   }
